@@ -174,8 +174,8 @@ list1.append(Node(65))
 list1.print()
 
 # Insert a node
-# list1.insert(Node(34), 3)
-# list1.print()
+list1.insert(Node(34), 3)
+list1.print()
 
 # Delete a node
 list1.delete(30)
