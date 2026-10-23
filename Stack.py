@@ -19,14 +19,21 @@ class stack:
              print("Poped Element :",temp.data)
              self.top=self.top.next
              temp=None
+    def reverse(self):
+        temp=self.top
+        while temp:
+            st1.push(Node(temp.data))
+            temp=temp.next
+
+
     def print(self):
-           
             temp=self.top
             print("Stack elements...")
             while temp:
               print(temp.data)
               temp=temp.next
 st=stack()
+st1=stack()
 st.push(Node(10))  
 st.push(Node(23))
 st.push(Node(17))              
@@ -36,4 +43,6 @@ st.push(Node(70))
 st.print()
 st.pop()
 st.print()
+st.reverse()
+st1.print()
 
