@@ -24,6 +24,15 @@ class PriorityQueue:
                     temp=temp.next
             prev.next=new_node
             new_node.next=temp
+    def dequeue(self):
+        if self.front:
+            temp=self.front
+            print("Node Deleted:",temp.data)
+            self.front=self.front.next
+            temp=None
+        else:
+            print("Queue is empty")
+
     def display(self):
         temp=self.front
         while temp:
@@ -37,5 +46,6 @@ pq.enqueue(Node(300,5))
 pq.enqueue(Node(800,7))
 pq.enqueue(Node(200,9))
 pq.enqueue(Node(900,6))
+pq.dequeue()
 pq.display()
                             
