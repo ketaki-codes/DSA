@@ -46,3 +46,4 @@ qu.enqueue(Node(64))
 qu.print()
 
 
+
