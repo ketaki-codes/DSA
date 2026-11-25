@@ -74,6 +74,32 @@ class BST:
             print(root.data, end=" ")
             self.inorder(root.right)
 
+    def count_leaf(self, root):
+            if root is None:
+                return
+            else:
+                self.count_leaf(root.left)
+                if root.left is None and root.right is None:
+                    self.cnt+=1                
+                self.count_leaf(root.right)
+
+    def count_nonleaf(self, root):
+                if root is None:
+                    return
+                else:
+                    self.count_nonleaf(root.left)
+                    if root.left is not None and root.right is not None:
+                        self.cnt+=1                
+                    self.count_nonleaf(root.right) 
+
+    def count_leftnode(self, root):
+                if root is None:
+                    return
+                else:
+                    self.count_leftnode(root.left)
+                    self.cnt+=1                
+                    self.count_leftnode(root.right)                                   
+
     def preorder(self, root):
         if root is None:
             return
@@ -150,5 +176,12 @@ if b1.search(60):
 else:
     print("\n Not Found") 
 
+b1.count_leaf(b1.root)
 print("Total number of leaf node: ",b1.cnt)  
+
+b1.count_nonleaf(b1.root)
+print("Total number of non leaf node: ",b1.cnt)  
+
+b1.count_leftnode(b1.root)
+print("Total number of left node: ",b1.cnt) 
     
