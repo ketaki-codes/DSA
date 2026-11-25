@@ -11,6 +11,7 @@ class Node:
 class BST:
     def __init__(self):
         self.root = None
+        self.cnt=0
 
     def insert(self, new_node):
         if self.root is None:
@@ -68,6 +69,8 @@ class BST:
             return
         else:
             self.inorder(root.left)
+            if root.left is None and root.right is None:
+                self.cnt+=1
             print(root.data, end=" ")
             self.inorder(root.right)
 
@@ -145,4 +148,7 @@ b1.inorder(b1.root)
 if b1.search(60):
     print("\n Found the node")
 else:
-    print("\n Not Found")    
+    print("\n Not Found") 
+
+print("Total number of leaf node: ",b1.cnt)  
+    
