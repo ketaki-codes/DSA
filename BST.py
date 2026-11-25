@@ -42,11 +42,11 @@ class BST:
             root.right = self.del_node(root.right, value)
 
         else:
-            # Node has no left child
+            # Node with right child  only
             if root.left is None:
                 return root.right
 
-            # Node has no right child
+            # Node with left child  only
             if root.right is None:
                 return root.left
 
@@ -87,6 +87,17 @@ class BST:
             self.postorder(root.right)
             print(root.data, end=" ")
 
+    def search(self, key):
+        temp=self.root
+        while temp: 
+            if temp .data==key:
+                return True
+            elif key<temp.data:
+                temp=temp.left
+            else:    
+                temp=temp.right
+        return False
+
     def findminmax(self):
         if self.root is None:
             print("BST is empty")
@@ -101,7 +112,6 @@ class BST:
         while temp.right:
             temp = temp.right
         print("Maximum:", temp.data)
-
 
 b1 = BST()
 
@@ -131,3 +141,8 @@ b1.root = b1.del_node(b1.root, 4)
 
 print("\nAfter Delete:")
 b1.inorder(b1.root)
+
+if b1.search(60):
+    print("\n Found the node")
+else:
+    print("\n Not Found")    
