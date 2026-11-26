@@ -79,16 +79,22 @@ class BST:
             print("BST is empty")
         arr=[]
         cnt=0
+        level=0
         arr.append(root)
         while(cnt<len(arr)):
-            temp=arr[cnt]
-            cnt+=1
-            print(temp.data, end=" ")
-            if temp.left:
-                arr.append(temp.left)
-            if temp.right:
-                arr.append(temp.right)                    
+            node_count=len(arr)-cnt #Level wise node count
+            print("\n Level No: ",level,end=" ")
+            for i in range(node_count):
+                temp=arr[cnt]
+                cnt+=1 #no. of nodes visited
+                print(temp.data, end=" ")#visiting node
+                if temp.left:
+                    arr.append(temp.left)
+                if temp.right:
+                    arr.append(temp.right)
+            level+=1       
 
+                                    
 
 b1 = BST()
 
@@ -100,6 +106,7 @@ b1.insert(Node(65))
 b1.insert(Node(300))
 b1.insert(Node(500))
 b1.insert(Node(50))
+b1.insert(Node(70))
 
 print("Inorder:")
 b1.inorder(b1.root)
